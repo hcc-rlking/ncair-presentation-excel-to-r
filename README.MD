@@ -28,16 +28,16 @@ Excel remains the dominant tool for many institutional research and effectivenes
 | Example 3 | [ ] | [ ] | [ ] |
 
 ### Slides:
-Title/Introduction: Title and Intro of Presenter
-Session Overview: What will attendees leave with. What the session will be and what it won't be
-	It will be a great intro to the value of R and how simple it can be (not hiding that more complex stuff can be hard)
-	It will not be a coding workshop where I actually show people how to code, We are just showing example code and output, not letting them code or teaching them exactly what something does. (There will be code on the screen, we just won't go into great detail)
-The Reality of IR/IE Workflows in Excel: Explanation of how IR/IE professionals use Excel day to day. Getting them to relate to the potential struggles with using excel. Those include reproducibility, scalability, version control, etc.
-From Spreadsheets to Scripts: High level explanation of why R can change those workflows to fix struggles with excel. How switching can allow for you to have reproducible reports and data management tools at scale. How things like Quarto, Shiny, and other tools can expand the offerings of your data work.
-Live Examples: Excel -> R: Explaining a task, showing that task in excel and what challenges might arise, then showing that same task in R. I want to have 3-4 examples that include IR tasks such as IPEDS reporting and executive Team reports, as well as IE tasks like general education assessment reporting and reproducable data summaries for program review/unit review/self studies.
-Benefits *and* Tradeoffs: Explaining that there are great benefits while being realistic about the tradeoffs/challenges such as learning R, getting it adopted(issues with IT for example), etc.
-First Steps for your own transition: How to decide what can and should be migrated. How to approach migrating tasks. How to gain adoption of a new/different tool.
-Resources, Tools, and Community: Give links, Mention suggested tools (R, Rstudio/Positron, Quarto, Shiny, coding agents/ai assistants etc.), talk about ThIRsday's by David Eubanks at Furman University and the communities managed by Posit. 
+- Title/Introduction: Title and Intro of Presenter
+- Session Overview: What will attendees leave with. What the session will be and what it won't be
+    - It will be a great intro to the value of R and how simple it can be (not hiding that more complex stuff can be hard)
+    - It will not be a coding workshop where I actually show people how to code, We are just showing example code and output, not letting them code or teaching them exactly what something does. (There will be code on the screen, we just won't go into great detail)
+- The Reality of IR/IE Workflows in Excel: Explanation of how IR/IE professionals use Excel day to day. Getting them to relate to the potential struggles with using excel. Those include reproducibility, scalability, version control, etc.
+- From Spreadsheets to Scripts: High level explanation of why R can change those workflows to fix struggles with excel. How switching can allow for you to have reproducible reports and data management tools at scale. How things like Quarto, Shiny, and other tools can expand the offerings of your data work.
+- Live Examples: Excel -> R: Explaining a task, showing that task in excel and what challenges might arise, then showing that same task in R. I want to have 3-4 examples that include IR tasks such as IPEDS reporting and executive Team reports, as well as IE tasks like general education assessment reporting and reproducable data summaries for program review/unit review/self studies.
+- Benefits *and* Tradeoffs: Explaining that there are great benefits while being realistic about the tradeoffs/challenges such as learning R, getting it adopted(issues with IT for example), etc.
+- First Steps for your own transition: How to decide what can and should be migrated. How to approach migrating tasks. How to gain adoption of a new/different tool.
+- Resources, Tools, and Community: Give links, Mention suggested tools (R, Rstudio/Positron, Quarto, Shiny, coding agents/ai assistants etc.), talk about ThIRsday's by David Eubanks at Furman University and the communities managed by Posit. 
 
 ### Examples:
 #### Example 1: IPEDS Reporting
