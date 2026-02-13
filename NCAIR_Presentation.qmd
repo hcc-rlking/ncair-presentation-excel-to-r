@@ -1,0 +1,32 @@
+---
+title: "From Spreadsheets to Scripts: Modernizing IR/IE Workflows with R"
+author: Logan King
+institute: "Haywood Community College"
+format: 
+    revealjs:
+        footer: "NCAIR 2026"
+        logo: assets/HCC_Hex.png
+        #theme: #Look up quarto themes 
+        transition: slide
+---
+## Session Overview
+
+## The Reality of IR/IE Workflows in Excel 
+
+```{r}
+#| label: setup
+library(tidyverse)
+library(readxl)
+
+# Read in data examples
+```
+
+## From Spreadsheets to Scripts
+
+## Live Examples: Excel &rarr; R
+
+## Benefits *and* Tradeoffs
+
+## First Steps for Your Own Transition
+
+## Resources, Tools, and Community
