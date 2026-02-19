@@ -26,6 +26,7 @@ Excel remains the dominant tool for many institutional research and effectivenes
 | Example 1 | [ ] | [ ] | [ ] |
 | Example 2 | [ ] | [ ] | [ ] |
 | Example 3 | [ ] | [ ] | [ ] |
+| Example 4 | [ ] | [ ] | [ ] |
 
 ### Slides:
 - Title/Introduction: Title and Intro of Presenter

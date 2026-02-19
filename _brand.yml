@@ -1,0 +1,15 @@
+meta:
+  name: NCAIR_Presentation
+
+color:
+  palette:
+    Dark Green: "#1E541E"
+    Light Green: "#85A600"
+    Grey: "#4E636B"
+    Tan: "#D6C46E"
+    white: "#FFFFFF"
+    black: "#000000"
+  foreground: black
+  background: white
+  primary: Dark Green
+  secondary: Light Green
