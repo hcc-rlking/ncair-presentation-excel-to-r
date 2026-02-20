@@ -133,12 +133,12 @@ Prepare reproducible data summaries for unit/program review.
 
 #### Example Development Checklist
 
-| Example                | Excel Screenshot | R Code Example | Simulated Data |
-|------------------------|-----------------|---------------|---------------|
-| IPEDS Reporting        | [ ]             | [ ]           | [ ]           |
-| Executive Team Reports | [ ]             | [ ]           | [ ]           |
-| Gen Ed Assessment      | [ ]             | [ ]           | [ ]           |
-| Program Review         | [ ]             | [ ]           | [ ]           |
+| Example                | Excel Screenshot | R Code Example | Simulated Data | Name of File in Data folder |
+|------------------------|-----------------|---------------|---------------|-------------|
+| IPEDS Reporting        | [ ]             | [ ]           | [ ]           | |
+| Executive Team Reports | [ ]             | [ ]           | [ ]           | |
+| Gen Ed Assessment      | [ ]             | [ ]           | [ ]           | |
+| Random Picture Data    | [ ]             | [ ]           | [x]           | data_example_1.xlsx |
 
 ---
 
