@@ -14,6 +14,8 @@ format:
 library(tidyverse)
 library(readxl)
 
+slide_data_1 <- read_excel("data/data_example_1.xlsx")
+
 # Read in data examples
 ```
 
@@ -51,6 +53,34 @@ The reality is that many IR/IE professionals rely heavily on spreadsheet softwar
 :::
 
 ## From Spreadsheets to Scripts
+::: {style="font-size: 0.75em;"}
+Transitioning from spreadsheets to scripts in R can offer several benefits for IR/IE professionals, including improved efficiency, reproducibility, and scalability.
+:::
+
+::: {style="font-size: 0.65em;"}
+- **Efficiency**: R allows for automation of repetitive tasks, reducing the time spent on manual data manipulation and analysis.
+- **Reproducibility**: R scripts can be easily shared and rerun, ensuring that analyses can be reproduced and verified by others.
+- **Scalability**: R can handle larger datasets more efficiently than Excel, making it suitable for more complex analyses and larger projects.
+:::
+
+::::{.columns}
+::: {.column width="50%"}
+![](assets/excel_example_1.png){width=100% style="font-size: 0.5em;"}
+:::
+::: {.column width="50%"}
+```{r}
+#| label: r-script-example
+#| echo: true
+# reading_data <- read_excel("data/ir_data.xlsx")
+# cleaned_data <- reading_data |>
+#     filter(!is.na(student_id)) |>
+#     mutate(grade = as.numeric(grade))
+
+```
+
+:::
+::::
+
 
 ## Live Examples: Excel &rarr; R
 
