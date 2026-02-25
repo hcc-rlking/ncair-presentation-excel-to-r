@@ -32,7 +32,9 @@ Excel remains the dominant tool for many institutional research and effectivenes
 - First Steps for your own transition: How to decide what can and should be migrated. How to approach migrating tasks. How to gain adoption of a new/different tool.
 - Resources, Tools, and Community: Give links, Mention suggested tools (R, Rstudio/Positron, Quarto, Shiny, coding agents/ai assistants etc.), talk about ThIRsday's by David Eubanks at Furman University and the communities managed by Posit.
 #### Slides Todo:
+
 | Slide Name              | Created | Draft 1  | Notes and Review | Final |
+|-------------------------|---------|----------|------------------|-------|
 | Title Slide             | [ x ]   | [ x ]    |  [  ]            | [  ]  |
 | Is this you?            | [ x ]   | [ x ]    |  [  ]            | [  ]  |
 | Reality of Excel        | [ x ]   | [  ]     |  [  ]            | [  ]  |
