@@ -33,18 +33,19 @@ Excel remains the dominant tool for many institutional research and effectivenes
 - Resources, Tools, and Community: Give links, Mention suggested tools (R, Rstudio/Positron, Quarto, Shiny, coding agents/ai assistants etc.), talk about ThIRsday's by David Eubanks at Furman University and the communities managed by Posit.
 #### Slides Todo:
 
-| Slide Name              | Created | Draft 1  | Notes and Review | Final |
-|-------------------------|---------|----------|------------------|-------|
-| Title Slide             | [ x ]   | [ x ]    |  [  ]            | [  ]  |
-| Is this you?            | [ x ]   | [ x ]    |  [  ]            | [  ]  |
-| Reality of Excel        | [ x ]   | [  ]     |  [  ]            | [  ]  |
-| Spreedsheets to Scripts | [ x ]   | [  ]     |  [  ]            | [  ]  |
-| Live Examples           | [ x ]   | [  ]     |  [  ]            | [  ]  |
-| B&T                     | [ x ]   | [  ]     |  [  ]            | [  ]  |
-| First Steps             | [ x ]   | [ x ]    |  [  ]            | [  ]  |
-| Resources               | [ x ]   | [ x ]    |  [  ]            | [  ]  |
-| Q&A                     | [ x ]   | [ x ]    |  [ x ]           | [ x ] |
-| Contact                 | [ x ]   | [ x ]    |  [ x ]           | [ x ] |
+| Slide Name              | Created | Draft 1 | Notes and Review | Final |
+| ----------------------- | ------- | ------- | ---------------- | ----- |
+| Title Slide             | [ x ]   | [ x ]   | [  ]             | [  ]  |
+| Session Overview        | [ x ]   | [ x ]   | [ x ]            | [ ]   |
+| Is this you?            | [ x ]   | [ x ]   | [  ]             | [  ]  |
+| Reality of Excel        | [ x ]   | [  ]    | [  ]             | [  ]  |
+| Spreedsheets to Scripts | [ x ]   | [  ]    | [  ]             | [  ]  |
+| Live Examples           | [ x ]   | [  ]    | [  ]             | [  ]  |
+| B&T                     | [ x ]   | [  ]    | [  ]             | [  ]  |
+| First Steps             | [ x ]   | [ x ]   | [  ]             | [  ]  |
+| Resources               | [ x ]   | [ x ]   | [  ]             | [  ]  |
+| Q&A                     | [ x ]   | [ x ]   | [ x ]            | [ x ] |
+| Contact                 | [ x ]   | [ x ]   | [ x ]            | [ x ] |
  
 ### Examples:
 #### Example 1: IPEDS Reporting

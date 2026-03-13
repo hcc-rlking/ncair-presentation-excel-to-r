@@ -9,19 +9,9 @@ format:
         transition: slide
         theme: brand
 ---
-```{r}
-#| label: setup
-library(tidyverse)
-library(readxl)
-
-slide_data_1 <- read_excel("data/data_example_1.xlsx")
-
-# Read in data examples
-```
-
 ## Session Overview
 ::: {style="font-size: 0.85em;"}
-In this session, we will cover the use of Spreadsheet software *(like Excel)* in IR/IE workflows as well as the benefits and potential tradeoffs of transitioning to R.
+In this session, we will look at the benefits and potential tradeoffs of transitioning common IR/IE tasks from Excel to R.
 :::
 :::: {.columns}
 ::: {.column width="60%" style="font-size: 0.65em;"}
@@ -44,13 +34,19 @@ Session Objectives
 :::
 ::::
  
-## Is this you?
+## This was me before R
 ![*Source: Google Gemini*](assets/Gemini_Generated_Image_mnzcyumnzcyumnzc.png){width=100% style="font-size: 0.3em;"}
- 
+
 ::: {.notes}
-- Does managing large reports or datasets in excel cause chaos in your office?
-- Does updating columns or formulas manually take up to much time?  
-- Do you feel overwhelmed by tracking changes or managing shared access in excel?
+- This was me before I found R.
+- Introduce complexity of WCU liberal studies assessment process and how I was managing it in Excel.
+    - Input process for liberal studies assessment was complex and involved multiple steps and stakeholders.
+- Is this you too?
+    - Managing large reports or datasets in excel cause chaos in your office?
+    - Updating columns or formulas manually take up too much time?
+    - Unhappy with the quality of your reports or visualizations in excel?
+    - Overwhelmed by tracking changes or managing shared access in excel?
+    - Unable to perform more complex analyses or statistical operations in excel?
 :::
  
 ## The Reality of IR/IE Workflows in Excel
@@ -75,9 +71,10 @@ Transitioning from spreadsheets to scripts in R can offer several benefits for I
 :::
  
 ::: {style="font-size: 0.65em;"}
-- **Efficiency**: R allows for automation of repetitive tasks, reducing the time spent on manual data manipulation and analysis.
-- **Reproducibility**: R scripts can be easily shared and rerun, ensuring that analyses can be reproduced and verified by others.
 - **Scalability**: R can handle larger datasets more efficiently than Excel, making it suitable for more complex analyses and larger projects.
+- **Reproducibility**: R scripts can be easily shared and rerun, ensuring that analyses can be reproduced and verified by others.
+- **Collaboration**: R allows for better version control and collaboration through tools like Git and Github, making it easier to track changes and work with others on the same project.
+- **Efficiency**: R allows for automation of repetitive tasks, reducing the time spent on manual data manipulation and analysis.
 :::
  
 ::::{.columns}
