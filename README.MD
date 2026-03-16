@@ -1,5 +1,5 @@
 ## From Spreadsheets to Scripts: Modernizing IR/IE Workflows with R
-### Presentation for NCAIR 2026
+### Presentation Progress Tracker for NCAIR 2026
 #### Proposal
 - Lead Presenter: Logan King
 - Email: rking3387@haywood.edu
