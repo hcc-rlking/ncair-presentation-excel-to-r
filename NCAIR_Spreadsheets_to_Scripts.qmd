@@ -38,14 +38,14 @@ If any of this sounds familiar... you're in the right room.
 ## A quick note on what this session is NOT:
 ::::{.columns}
 ::: {.column width="45%"}
-Pic here of crazy r code
+![*Source: Reddit*](assets/r_code_1.png){width=67%}
 :::
 
 :::{.column width="10%"}
 &rarr;
 :::
 ::: {.column width="45%"}
-![Source: Visit Haywood](assets/niceHCCpic.jpeg){width=100%}
+![*Source: Visit Haywood*](assets/niceHCCpic.jpeg){width=100%}
 :::
 ::::
 :::{.notes}
@@ -55,23 +55,31 @@ Pic here of crazy r code
 ## The Reality of IR/IE Workflows in Excel
 
 ::: {style="font-size: 0.75em;"}
-Most IR/IE offices live in Excel — and for good reason. It's accessible, flexible, and everyone knows it.
+Most IR/IE offices live in Excel, and for good reason. It's accessible, flexible, and everyone knows it.
 :::
 
 ::: {style="font-size: 0.65em;"}
 - **Reproducibility:** Can you recreate last year's report from scratch? Can someone else?
 - **Version control:** Which file is the real one? What changed between versions?
-- **Copy-paste errors:** Manual data movement introduces mistakes that are hard to catch
-- **Formula fragility:** One deleted row can silently break a calculation downstream
-- **Scalability limits:** Large datasets slow Excel to a crawl — or crash it entirely
-- **Tedious manual updates:** Each new reporting cycle means repeating the same steps by hand
+- **Copy-paste errors:** Manual data movement introduces mistakes that are hard to catch.
+- **Formula fragility:** One deleted row can silently break a calculation downstream.
+- **Scalability limits:** Large datasets slow Excel to a crawl or crash it entirely.
+- **Tedious manual updates:** Each new reporting cycle means repeating the same steps by hand.
+- **Stats & Visualizations:** Excel's built-in stats tools are limited and not designed for complex analyses or visualizations.
 :::
 
 We don't use Excel because it's the best tool for everything. We use it because it's the tool we have.
 
 :::{.notes}
-- Invite the audience to relate — ask how many have experienced one of these pain points.
+- Invite the audience to relate, ask how many have experienced one of these pain points.
 - Don't be dismissive of Excel; the goal is to add a tool, not attack a familiar one.
+:::
+
+## Whats the fix?
+![*Source: Google Gemini*](assets/brokenexcel.png){width=48%}
+
+:::{.notes}
+- The good news is that there is a better way to do this work. We can transition to a more modern, powerful, and efficient workflow using R.
 :::
 
 ## From Spreadsheets to Scripts
@@ -83,23 +91,45 @@ Transitioning to R can address each of these pain points directly.
 ::: {style="font-size: 0.65em;"}
 | Excel Challenge | R Solution |
 |---|---|
-| Reproducibility | Scripts document every step — run it again, get the same result |
-| Version control | Works seamlessly with Git; track every change |
-| Copy-paste errors | Data flows through code, not manual transfers |
-| Formula fragility | Logic is explicit, testable, and auditable |
-| Scalability | Handles millions of rows without breaking a sweat |
-| Tedious manual updates | Automate the repetitive stuff; spend time on analysis |
+| Reproducibility | Scripts document every step. Run it again and again, get the same report. |
+| Version control | Works seamlessly with Git and Github; track every change. |
+| Copy-paste errors | Data flows through code, not manual transfers. |
+| Formula fragility | Logic is explicit, testable, and auditable. |
+| Scalability | Handles millions of rows without breaking a sweat. |
+| Tedious manual updates | Automate the repetitive stuff. Spend time on analysis. |
+| Stats & Visualizations | Powerful libraries for complex analyses and stunning visuals. |
 :::
 
-**The core toolkit:**
+## The core toolkit:
+:::::{.columns}
+:::: {style="font-size: 0.65em;"}
+::: {.column width="25%"}
+**Programming Language**
 
-::: {style="font-size: 0.65em;"}
-- **R** — The language itself; free and open source
-- **RStudio / Positron** — The coding environment (like Excel's interface, but for R)
-- **Quarto** — Turn your R code into polished reports, presentations, and websites
-- **Shiny** — Build interactive data dashboards without knowing web development
+![](assets/rimage.jpg){width=50%}
 :::
-
+::: {.column width="25%"}
+**Integrated Development Environment (IDE)**
+![](assets/logo-RStudio.png){width=50%}
+![](assets/logo-positron.png){width=50%}
+:::
+::: {.column width="25%"}
+**Reporting & Visualization**
+![](assets/logo-quarto.png){width=50%}
+:::
+::: {.column width="25%"}
+**Interactive Apps and Dashboards**
+![](assets/logo-shiny.png){width=50%}
+:::
+::::
+:::::
+:::{style="font-size: 0.45em;"}
+*Source: Posit & R-Project* 
+:::
+:::{.notes}
+- Introduce core tools for R ecosystem. R is the language, RStudio and Positron are the IDEs, Quarto (or R Markdown but outdated) is for reporting, and Shiny is for interactive dashboards. You don't need everything, but it's good to have a sense of the ecosystem.
+- Tools are open source and have large communities for support. Great for offices with limited budgets.
+:::
 ## Live Examples: Excel &rarr; R
 
 ## Example 1: IPEDS Reporting
@@ -296,21 +326,21 @@ Parameterized reporting is one of the most impressive things to demo for adminis
 ::: {.column width="48%" style="font-size: 0.65em;"}
 **Benefits**
 
-- ✅ **Reproducibility** — Scripts are documentation; anyone can rerun your work
-- ✅ **Automation** — Repetitive tasks run in seconds, not hours
-- ✅ **Scalability** — Millions of rows, no sweat
-- ✅ **Version control** — Git tracks every change, with notes
-- ✅ **Professional outputs** — Quarto produces polished reports and presentations
-- ✅ **Free and open source** — No licensing costs
+- ✅ **Reproducibility**: Scripts are documentation; anyone can rerun your work
+- ✅ **Automation**: Repetitive tasks run in seconds, not hours
+- ✅ **Scalability**: Millions of rows, no sweat
+- ✅ **Version control**: Git tracks every change, with notes
+- ✅ **Professional outputs**: Quarto produces polished reports and presentations
+- ✅ **Free and open source**: No licensing costs
 :::
 ::: {.column width="48%" style="font-size: 0.65em;"}
 **Tradeoffs & Challenges**
 
-- ⚠️ **Learning curve** — R takes time to learn; the first month is humbling
-- ⚠️ **Migration investment** — Rebuilding existing workflows takes real effort up front
-- ⚠️ **Organizational adoption** — IT, leadership, and colleagues all need buy-in
-- ⚠️ **Not everything should migrate** — A quick one-off calculation? Excel is fine
-- ⚠️ **Support structures** — You may be the only R user in your office (for now)
+- ⚠️ **Learning curve**: R takes time to learn; the first month is humbling
+- ⚠️ **Migration investment**: Rebuilding existing workflows takes real effort up front
+- ⚠️ **Organizational adoption**: IT, leadership, and colleagues all need buy-in
+- ⚠️ **Not everything should migrate**: A quick one-off calculation? Excel is fine
+- ⚠️ **Support structures**: You may be the only R user in your office (for now)
 :::
 ::::
 
@@ -328,7 +358,7 @@ It's important to be honest about the tradeoffs here. R is not universally bette
 ::: {.column width="50%" style="font-size: 0.65em;"}
 **How to approach the migration:**
 
-1. Start with *one* task — not your most complex report
+1. Start with *one* task, not your most complex report
 2. Rebuild it in R while keeping the Excel version as a check
 3. Validate your R output against the known Excel result
 4. Once confident, retire the Excel version
@@ -336,10 +366,10 @@ It's important to be honest about the tradeoffs here. R is not universally bette
 ::: {.column width="50%" style="font-size: 0.65em;"}
 **How to build organizational support:**
 
-- Show your work — share a polished Quarto report with your supervisor
-- Involve IT early — especially around data access and file storage
-- Find an internal champion — one curious colleague can make a difference
-- Be patient with yourself and others — adoption takes time
+- Show your work: share a polished Quarto report with your supervisor
+- Involve IT early: especially around data access and file storage
+- Find an internal champion: one curious colleague can make a difference
+- Be patient with yourself and others: adoption takes time
 :::
 ::::
 
@@ -375,12 +405,12 @@ It's important to be honest about the tradeoffs here. R is not universally bette
 ::::
 
 :::{.notes}
-ThIRsdays is especially worth highlighting — it's built specifically for IR and IE professionals learning R, with real examples from the field.
+- Highlight tools and open source nature, learning resources, communities to join, and ability of AI to assist in R learning and coding.
 :::
 
 ## Q&A {.center}
 
-[{{< bi patch-question size=8em >}}]{style="color: #1E541E; display: flex; justify-content: center; align-items: center; height: 70vh;"}
+[{{< bi patch-question size=8em >}}]{style="color: #85A600; display: flex; justify-content: center; align-items: center; height: 70vh;"}
 
 :::{.notes}
 Any questions? I am happy to help.

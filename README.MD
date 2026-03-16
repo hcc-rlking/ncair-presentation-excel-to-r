@@ -18,137 +18,72 @@ Excel remains the dominant tool for many institutional research and effectivenes
 - Slides using NCAIR_Presentation.qmd and revealjs for HTML output.
 - Real IE/IR Examples done in Excel for slide screenshots.
 - Code examples of how to do the same things as in Excel in R
- 
-### Slides flow:
-- Title/Introduction: Title and Intro of Presenter
-- Is this you? Do you have a problem with Excel or Spreedsheets? Well do I have a solution for you!
-- Session Overview: What will attendees leave with. What the session will be and what it won't be
-    - It will be a great intro to the value of R and how simple it can be (not hiding that more complex stuff can be hard)
-    - It will not be a coding workshop where I actually show people how to code, We are just showing example code and output, not letting them code or teaching them exactly what something does. (There will be code on the screen, we just won't go into great detail)
-- The Reality of IR/IE Workflows in Excel: Explanation of how IR/IE professionals use Excel day to day. Getting them to relate to the potential struggles with using excel. Those include reproducibility, scalability, version control, etc.
-- From Spreadsheets to Scripts: High level explanation of why R can change those workflows to fix struggles with excel. How switching can allow for you to have reproducible reports and data management tools at scale. How things like Quarto, Shiny, and other tools can expand the offerings of your data work.
-- Live Examples: Excel -> R: Explaining a task, showing that task in excel and what challenges might arise, then showing that same task in R. I want to have 3-4 examples that include IR tasks such as IPEDS reporting and executive Team reports, as well as IE tasks like general education assessment reporting and reproducable data summaries for program review/unit review/self studies.
-- Benefits *and* Tradeoffs: Explaining that there are great benefits while being realistic about the tradeoffs/challenges such as learning R, getting it adopted(issues with IT for example), etc.
-- First Steps for your own transition: How to decide what can and should be migrated. How to approach migrating tasks. How to gain adoption of a new/different tool.
-- Resources, Tools, and Community: Give links, Mention suggested tools (R, Rstudio/Positron, Quarto, Shiny, coding agents/ai assistants etc.), talk about ThIRsday's by David Eubanks at Furman University and the communities managed by Posit.
-#### Slides Todo:
 
-| Slide Name              | Created | Draft 1 | Notes and Review | Final |
-| ----------------------- | ------- | ------- | ---------------- | ----- |
-| Title Slide             | [ x ]   | [ x ]   | [  ]             | [  ]  |
-| Session Overview        | [ x ]   | [ x ]   | [ x ]            | [ ]   |
-| Is this you?            | [ x ]   | [ x ]   | [  ]             | [  ]  |
-| Reality of Excel        | [ x ]   | [  ]    | [  ]             | [  ]  |
-| Spreedsheets to Scripts | [ x ]   | [  ]    | [  ]             | [  ]  |
-| Live Examples           | [ x ]   | [  ]    | [  ]             | [  ]  |
-| B&T                     | [ x ]   | [  ]    | [  ]             | [  ]  |
-| First Steps             | [ x ]   | [ x ]   | [  ]             | [  ]  |
-| Resources               | [ x ]   | [ x ]   | [  ]             | [  ]  |
-| Q&A                     | [ x ]   | [ x ]   | [ x ]            | [ x ] |
-| Contact                 | [ x ]   | [ x ]   | [ x ]            | [ x ] |
- 
-### Examples:
-#### Example 1: IPEDS Reporting
- 
-**Task Description:**  
-Compile and summarize institutional data for IPEDS submission.
- 
-**Excel Workflow:**  
-- Manual data entry and aggregation  
-- Copy-paste between sheets  
-- Risk of formula errors and inconsistent updates  
-- Limited reproducibility
- 
-**R Workflow:**  
-- Automated data import and cleaning  
-- Scripted aggregation and summary  
-- Reproducible output for each reporting cycle  
-- Scalable for future years
- 
-**Data/Code Notes:**  
-- Simulated student enrollment dataset  
-- R script for summary tables  
-- Placeholder: [Screenshot Excel] [Code Example R]
- 
+
+### Slides Overview
+
+| # | Slide Title | Purpose |
+|---|---|---|
+| 1 | Is This You? | Opening hook — audience relates to common Excel frustrations |
+| 2 | Session Overview | Sets expectations with three learning outcomes |
+| 3 | A Quick Note on What This Session is NOT | Clarifies this is not a coding workshop; focus is on concepts and next steps |
+| 4 | The Reality of IR/IE Workflows in Excel | Names specific pain points (reproducibility, version control, errors, scalability, etc.) |
+| 5 | What's the Fix? | Transition slide signals the shift from problems to solutions |
+| 6 | From Spreadsheets to Scripts | Side-by-side table mapping each Excel challenge to its R solution |
+| 7 | The Core Toolkit | Introduces R, RStudio/Positron, Quarto, and Shiny |
+| 8 | Live Examples: Excel → R | Section divider for the demo portion |
+| 9 | Example 1: IPEDS Reporting | Excel vs. R workflow comparison with code snippet |
+| 10 | Example 2: Executive Team Reports | Quarto + ggplot2 for automated, branded reports |
+| 11 | Example 3: General Education Assessment | Batch-reading files and summarizing assessment data |
+| 12 | Example 4: Program Review Data Summaries | Parameterized Quarto reports — one template, many outputs |
+| 13 | Benefits *and* Tradeoffs | Honest two-column comparison of advantages and challenges |
+| 14 | First Steps for Your Own Transition | Practical migration strategy and organizational buy-in tips |
+| 15 | Resources, Tools, and Community | Links to tools, learning resources, communities, and AI assistants |
+| 16 | Q&A | Open floor for questions |
+| 17 | Thank You! | Contact info (LinkedIn, email) |
+
 ---
- 
-#### Example 2: Executive Team Reports
- 
-**Task Description:**  
-Generate regular summary reports for leadership.
- 
-**Excel Workflow:**  
-- Manual updates to charts and tables  
-- Version control issues  
-- Tedious formatting
- 
-**R Workflow:**  
-- Dynamic report generation with Quarto  
-- Automated chart creation  
-- Consistent formatting and versioning
- 
-**Data/Code Notes:**  
-- Simulated program enrollment and outcomes  
-- Quarto template for report  
-- Placeholder: [Screenshot Excel] [Code Example R]
- 
----
- 
-#### Example 3: General Education Assessment
- 
-**Task Description:**  
-Summarize assessment results for gen ed outcomes.
- 
-**Excel Workflow:**  
-- Data entry from multiple sources  
-- Manual calculation of summary statistics  
-- Error-prone and hard to audit
- 
-**R Workflow:**  
-- Data merging and cleaning  
-- Automated summary statistics  
-- Transparent, auditable workflow
- 
-**Data/Code Notes:**  
-- Simulated assessment results  
-- R script for summary and visualization  
-- Placeholder: [Screenshot Excel] [Code Example R]
- 
----
- 
-#### Example 4: Program Review Data Summaries
- 
-**Task Description:**  
-Prepare reproducible data summaries for unit/program review.
- 
-**Excel Workflow:**  
-- Multiple versions of files  
-- Manual updates and risk of outdated data  
-- Difficult to scale
- 
-**R Workflow:**  
-- Centralized data source  
-- Scripted summaries and visualizations  
-- Easy updates and scalability
- 
-**Data/Code Notes:**  
-- Simulated program review dataset  
-- R script for summary tables and plots  
-- Placeholder: [Screenshot Excel] [Code Example R]
- 
----
- 
-#### Example Development Checklist
- 
-| Example                | Excel Screenshot | R Code Example | Simulated Data | Name of File in Data folder |
-|------------------------|-----------------|---------------|---------------|-------------|
-| IPEDS Reporting        | [ ]             | [ ]           | [ ]           | |
-| Executive Team Reports | [ ]             | [ ]           | [ ]           | |
-| Gen Ed Assessment      | [ ]             | [ ]           | [ ]           | |
-| Random Picture Data    | [ ]             | [ ]           | [x]           | data_example_1.xlsx |
- 
----
- 
-**Note:** Examples are linked to slide topics and learning outcomes. All data will be simulated for demonstration.
- 
- 
+
+### Tracking
+
+#### Slide Content
+- [x] Opening hook (Is This You?)
+- [x] Session Overview / Learning Outcomes
+- [x] "Not a coding workshop" disclaimer
+- [x] Excel pain points slide
+- [x] Transition slide (What's the Fix?)
+- [x] Excel → R solutions table
+- [x] Core toolkit slide (R, RStudio, Positron, Quarto, Shiny)
+- [ ] Example 1: IPEDS Reporting
+- [ ] Example 2: Executive Team Reports
+- [ ] Example 3: General Education Assessment
+- [ ] Example 4: Program Review Data Summaries
+- [ ] Benefits and Tradeoffs
+- [ ] First Steps for Your Own Transition
+- [x] Resources, Tools, and Community
+- [x] Q&A slide
+- [x] Thank You / Contact slide
+
+#### Screenshots & Assets
+- [x] Gemini-generated opening image (`Gemini_Generated_Image_mnzcyumnzcyumnzc.png`)
+- [x] Reddit R code image (`r_code_1.png`)
+- [x] HCC campus photo (`niceHCCpic.jpeg`)
+- [x] Broken Excel image (`brokenexcel.png`)
+- [x] HCC hex logo (`HCC_Hex.png`)
+- [x] Toolkit logos (R, RStudio, Positron, Quarto, Shiny)
+- [ ] Excel screenshot for Example 1 (IPEDS Reporting)
+- [ ] Excel screenshot for Example 2 (Executive Team Reports)
+- [ ] Excel screenshot for Example 3 (Gen Ed Assessment)
+- [ ] Excel screenshot for Example 4 (Program Review)
+
+#### Code Examples
+- [ ] IPEDS Reporting R snippet
+- [ ] Executive Team Reports ggplot snippet
+- [ ] Gen Ed Assessment batch-read snippet
+- [ ] Program Review parameterized report snippet
+
+#### Final Checks
+- [ ] Speaker notes for all slides
+- [x] `_brand.yml` theming
+- [ ] Dry run / timing check
+- [ ] Final render and review
