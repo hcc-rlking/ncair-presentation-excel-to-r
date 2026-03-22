@@ -17,9 +17,11 @@ format:
 
 ::: {.notes}
 Does this sound like you?
-- Copying and pasting data from multiple reports into one master file
+
 - A folder full of files with names like `report_final_v2_FINAL.xlsx`
-- Spending hours reformatting tables or creating visualizations only to have the source data change, etc.
+- Copying and pasting data or formulas across multiple workbooks.
+- Large datasets or analyses that crash Excel or take forever to run.
+
 If any of this sounds familiar... you're in the right room.
 :::
 
@@ -99,6 +101,10 @@ Transitioning to R can address each of these pain points directly.
 | Tedious manual updates | Automate the repetitive stuff. Spend time on analysis. |
 | Stats & Visualizations | Powerful libraries for complex analyses and stunning visuals. |
 :::
+:::{.notes}
+- Note the things R can do for the items in the table. This is the core value proposition of the session.
+:::
+
 
 ## The core toolkit:
 :::::{.columns}
@@ -131,6 +137,12 @@ Transitioning to R can address each of these pain points directly.
 - Tools are open source and have large communities for support. Great for offices with limited budgets.
 :::
 ## Live Examples: Excel &rarr; R
+![*Source: Daran Johnson Blog*](assets/excel_to_r.jpg)
+
+:::{.notes}
+- Now let's look at some real examples of how specific IR/IE tasks can be done in R.
+:::
+
 
 ## Example 1: IPEDS Reporting
 
