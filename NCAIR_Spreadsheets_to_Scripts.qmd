@@ -10,6 +10,35 @@ format:
     slide-number: true
     transition: slide
 ---
+## A little about Haywood CC
+:::{style="font-size: 0.45em;"}
+![](assets/HCC_Hex.png){width=30% fig-align="center"}
+:::
+
+:::::{style="font-size: 0.50em;"}
+::::{.columns}
+:::{.column width="25%"}
+- ~1300 Students in Curriculum
+- ~2700 Students in Continuing Education *(25-26)*
+- 30+ Academic Programs
+- Over 50% of Courses offered online
+:::
+
+:::{.column width="50%"}
+Mission: We serve the educational needs and economic growth of our community, by promoting lifelong student learning and success.
+:::
+
+:::{.column width="25%"}
+- 2027 Aspen Prize Nominee
+- Unique programs in Natural Resources and Professional Crafts
+- Have a Lumberjack Team!
+:::
+::::
+:::::
+:::{.notes}
+Haywood is a community college in Clyde NC.
+:::
+
 ## Is This You?
 ::: {style="font-size: 0.55em;"}
 ![*Source: Google Gemini*](assets/Gemini_Generated_Image_mnzcyumnzcyumnzc.png){width=40%}
@@ -143,196 +172,181 @@ Transitioning to R can address each of these pain points directly.
 - Now let's look at some real examples of how specific IR/IE tasks can be done in R.
 :::
 
-
-## Example 1: IPEDS Reporting
+## Example 1: IPEDS Comparisons
 
 ::::{.columns}
-::: {.column width="48%" style="font-size: 0.65em;"}
-**Excel Workflow**
+::: {.column width="50%" style="font-size: 0.62em;"}
+**The Excel workflow:**
 
-- Manually download data files from IPEDS
-- Copy-paste values across multiple workbooks
-- Apply formatting adjustments by hand each cycle
-- Aggregations done with SUMIF/VLOOKUP formulas
-- Errors discovered after submission (sometimes)
-- Process repeated from scratch each year
-:::
-::: {.column width="48%" style="font-size: 0.65em;"}
-**R Workflow**
-
-- Script imports and joins data automatically
-- Cleaning and aggregation logic is written once, reused every cycle
-- Output is consistent and auditable
-- Errors caught before they become problems
-- New year = re-run the script
-
-```{r}
-#| eval: false
-# Read raw IPEDS data file
-ipeds_raw <- read_csv("ipeds_fall_enrollment.csv")
-
-# Filter, group, and summarize in one pipeline
-ipeds_summary <- ipeds_raw |>
-  filter(institution_id == my_unitid) |>
-  group_by(year, race_ethnicity, gender) |>
-  summarize(headcount = sum(students), .groups = "drop")
+- Pull peer data manually from IPEDS Data Center
+- Manually manipulate data to build 1 table
+- Build pivot tables for each metric by hand
+- Recreate charts every reporting cycle from scratch
+- Static output: one Excel file nobody else can easily update
+```
+IPEDS_Peers_2024_FINAL_v2_USE_THIS.xlsx
 ```
 
+**The result:** Hours of work to answer one question: *"How do we compare?"*
+:::
+
+::: {.column width="50%" style="font-size: 0.62em;"}
+```r
+library(readxl); library(dplyr); library(gt)
+
+df <- read_excel("IPEDS_NC_CC_Enrollment_Fake.xlsx", sheet = "IPEDS_EF_Data")
+
+df |>
+  mutate(
+    pct_ft       = ENRFT / ENRTOT,
+    pct_women    = UGENRW / UGENRTOT,
+    pct_black    = UGENR_BLACK / UGENRTOT,
+    pct_deg_seek = DEG_SEEKING / UGENRTOT
+  ) |>
+  select(INSTNM, ENRTOT, pct_ft, pct_women, pct_black, pct_deg_seek) |>
+  arrange(desc(ENRTOT)) |>
+  gt() |>
+  fmt_integer(columns = ENRTOT) |>
+  fmt_percent(columns = c(pct_ft, pct_women, pct_black, pct_deg_seek), decimals = 1)
+```
+
+*One script. Swap the file next year. Done.*
 :::
 ::::
 
-<!-- INSERT SCREENSHOT -->
+:::{.notes}
+- Talk through excel process
+- Clean data table creation, great for quarto report.
+:::
+
+## Example 1: Potential Output 
+![](assets/example1_ipeds_table.png)
 
 :::{.notes}
-This is one of the most time-consuming cyclical tasks in IR. The key selling point here is that the R script becomes the documentation — anyone can open it and understand exactly what was done. With Excel, the logic often lives only in the analyst's head.
+- More complex version of previous.
 :::
 
-## Example 2: Executive Team Reports
+## Example 2: SLO Assessment
 
 ::::{.columns}
-::: {.column width="48%" style="font-size: 0.65em;"}
-**Excel Workflow**
+::: {.column width="50%" style="font-size: 0.62em;"}
+**The Excel workflow:**
 
-- Pull data from multiple sources into Excel
-- Rebuild charts and tables manually each reporting period
-- Format everything to match branding guidelines
-- Export to PDF or copy-paste into Word/PowerPoint
-- One data change = update every chart by hand
-- Reports look slightly different each time
+- Collect rubric scores across faculty via emailed spreadsheets
+- Manually consolidate into a master workbook
+- Calculate means by hand or with fragile cell references
+- Re-paste into Word or PowerPoint for the assessment report
+- Repeat every semester with a new set of files
+```
+SLO_Spring2024_CONSOLIDATED_v3_Logans_version_FINAL.xlsx
+```
+
+**The result:** Hours lost to data wrangling before any actual analysis begins.
 :::
-::: {.column width="48%" style="font-size: 0.65em;"}
-**R Workflow**
 
-- Quarto document connects directly to data
-- Charts and tables regenerate automatically
-- Consistent formatting defined once in a template
-- Render to PDF, HTML, or Word with one command
-- Data change = re-render; everything updates
+::: {.column width="50%" style="font-size: 0.62em;"}
+```r
+library(readxl); library(dplyr); library(ggplot2)
 
-```{r}
-#| eval: false
-# A Quarto report renders this automatically
-enrollment_trend |>
-  ggplot(aes(x = term, y = headcount, color = student_type)) +
-  geom_line(linewidth = 1.2) +
-  geom_point(size = 3) +
+df <- read_excel("SLO_Rubric_Scores.xlsx")
+
+df |>
+  group_by(program, outcome) |>
+  summarise(
+    n          = n(),
+    mean_score = mean(score, na.rm = TRUE),
+    pct_meets  = mean(score >= 3, na.rm = TRUE)
+  ) |>
+  ggplot(aes(x = outcome, y = pct_meets, fill = program)) +
+  geom_col(position = "dodge") +
+  scale_y_continuous(labels = scales::percent) +
   labs(
-    title = "Enrollment Trend by Student Type",
-    x = "Term",
-    y = "Headcount"
+    title = "% of Students Meeting or Exceeding SLO Threshold",
+    x = "Student Learning Outcome",
+    y = NULL, fill = "Program"
   ) +
   theme_minimal()
 ```
 
+*Add a new semester's file. Rerun. Updated report, no copy-paste required.*
 :::
 ::::
 
-<!-- INSERT SCREENSHOT -->
-
 :::{.notes}
-The "re-render" workflow is genuinely transformative for anyone who produces recurring reports. The chart code is written once. When enrollment data updates, you just run the document again. No manual reformatting, no copy-paste into PowerPoint — it just works.
+- Go through excel process.
+- Highlight group by, summarize and ggplot2
 :::
 
-## Example 3: General Education Assessment
+## Example 2: Potential Output
+![](assets/example2_slo_chart.png)
+
+:::{.notes}
+- Graphing abilities!
+:::
+
+## Example 3: Statistical Analysis
 
 ::::{.columns}
-::: {.column width="48%" style="font-size: 0.65em;"}
-**Excel Workflow**
+::: {.column width="50%" style="font-size: 0.62em;"}
+**The Excel workflow:**
 
-- Data lives in separate files from each program or course
-- Manually combine files each assessment cycle
-- Calculate aggregate statistics by hand or with fragile formulas
-- Visualizations built individually for each outcome
-- Hard to compare results across years or programs
-- Process is not documented — tribal knowledge only
-:::
-::: {.column width="48%" style="font-size: 0.65em;"}
-**R Workflow**
-
-- R reads and merges all source files automatically
-- Consistent rubric scoring logic applied across all data
-- Summary statistics generated for every outcome at once
-- Plots produced programmatically and consistently
-- Year-over-year comparisons easy to add
-
-```{r}
-#| eval: false
-# Read all assessment files from a folder at once
-all_assessments <- list.files(
-  path = "data/gen_ed/",
-  pattern = "*.csv",
-  full.names = TRUE
-) |>
-  map(read_csv) |>
-  list_rbind()
-
-# Summarize scores by outcome
-all_assessments |>
-  group_by(outcome, rating) |>
-  count() |>
-  mutate(pct = n / sum(n))
+- Use Data Analysis ToolPak, if it's even installed
+- Results paste as static, unformatted output into the sheet
+- Re-run manually every time data changes
+- No easy path to regression, SEM, or forests
+- Visualizations require separate power chart stepss
+```
+retention_analysis_2024_stats_attempt2.xlsx
 ```
 
+**The result:** Analysis limited by what Excel's toolbox can do, not by your research questions.
+:::
+
+::: {.column width="50%" style="font-size: 0.62em;"}
+```r
+library(readxl); library(tidymodels); library(probably)
+
+df <- read_excel("Student_Retention_Fake.xlsx") |>
+  mutate(retained = factor(RETAINED, levels = c("No", "Yes")))
+
+# Define model spec and recipe
+log_spec <- logistic_reg() |> set_engine("glm")
+
+rec <- recipe(retained ~ FIRST_GEN + PELL_ELIG + ENROLL_INTENSITY + GPA_TERM1,
+              data = df) |>
+  step_dummy(all_nominal_predictors())
+
+# Fit via workflow
+wf <- workflow() |>
+  add_recipe(rec) |>
+  add_model(log_spec) |>
+  fit(data = df)
+
+# Tidy coefficients with odds ratios
+wf |>
+  tidy(exponentiate = TRUE, conf.int = TRUE) |>
+  filter(term != "(Intercept)") |>
+  select(term, estimate, conf.low, conf.high, p.value)
+```
+
+*Logistic regression, in eleven lines. Swap the outcome variable and rerun for any question.*
 :::
 ::::
 
-<!-- INSERT SCREENSHOT -->
+:::{.notes}
+- Talk about potential for strong analysis and modeling abilities.
+:::
+
+## Example 3: Potential Outcome
+![](assets/example3_shiny_dashboard.png)
 
 :::{.notes}
-General education assessment is a perfect candidate for R because it typically involves pulling together data from many different sources. The `list.files()` + `map()` pattern shown here is a real workhorse — it reads every file in a folder and stacks them automatically.
-:::
-
-## Example 4: Program Review Data Summaries
-
-::::{.columns}
-::: {.column width="48%" style="font-size: 0.65em;"}
-**Excel Workflow**
-
-- A separate workbook for each program under review
-- Manual copy-paste from enrollment, grades, and completion data
-- Multiple versions floating around as updates are made
-- Charts rebuilt from scratch for each program
-- Inconsistencies between program reports are common
-- Coordinator spends days on data prep before any analysis
-:::
-::: {.column width="48%" style="font-size: 0.65em;"}
-**R Workflow**
-
-- One centralized script handles all programs
-- Data pulled from a single source of truth
-- Parameterized reports: one template, many outputs
-- Plots and tables consistent across all programs
-- Updates are instant when source data changes
-
-```{r}
-#| eval: false
-# Parameterized report: swap program name,
-# get a fresh report for any program
-params <- list(program = "Nursing")
-
-# Filter data for the target program
-program_data <- enrollment |>
-  filter(program_name == params$program)
-
-# Render a full report for that program
-quarto_render(
-  input = "program_review_template.qmd",
-  execute_params = params
-)
-```
-
-:::
-::::
-
-<!-- INSERT SCREENSHOT -->
-
-:::{.notes}
-Parameterized reporting is one of the most impressive things to demo for administrators. Instead of building 40 separate Excel workbooks for 40 programs, you build one Quarto template and render it 40 times — each one customized automatically.
+- Talk about shiny!
 :::
 
 ## Benefits *and* Tradeoffs
 
-**It's not a magic wand — but it is a better tool for a lot of what we do.**
+**It's not a magic wand, but it is a better tool for a lot of what we do.**
 
 ::::{.columns}
 ::: {.column width="48%" style="font-size: 0.65em;"}
@@ -348,7 +362,7 @@ Parameterized reporting is one of the most impressive things to demo for adminis
 ::: {.column width="48%" style="font-size: 0.65em;"}
 **Tradeoffs & Challenges**
 
-- ⚠️ **Learning curve**: R takes time to learn; the first month is humbling
+- ⚠️ **Learning curve**: R takes time to learn, but there are pleant of resources
 - ⚠️ **Migration investment**: Rebuilding existing workflows takes real effort up front
 - ⚠️ **Organizational adoption**: IT, leadership, and colleagues all need buy-in
 - ⚠️ **Not everything should migrate**: A quick one-off calculation? Excel is fine
@@ -357,7 +371,7 @@ Parameterized reporting is one of the most impressive things to demo for adminis
 ::::
 
 :::{.notes}
-It's important to be honest about the tradeoffs here. R is not universally better than Excel — it's better for a specific class of problems. The goal isn't to eliminate Excel, it's to reach for a more appropriate tool when the task calls for it. The learning curve is real, but the community and resources available today make it far more accessible than it was even five years ago.
+- Be honest about the trade offs for R and adoption issues.
 :::
 
 ## First Steps for Your Own Transition
@@ -385,6 +399,10 @@ It's important to be honest about the tradeoffs here. R is not universally bette
 :::
 ::::
 
+:::{.notes}
+- Go through steps!
+:::
+
 ## Resources, Tools, and Community
 
 ::::{.columns}
@@ -399,15 +417,14 @@ It's important to be honest about the tradeoffs here. R is not universally bette
 
 **Learning**
 
-- [ThIRsdays](https://thirdays.com/) — IR-focused R tutorials by David Eubanks, Furman University
 - [R for Data Science](https://r4ds.hadley.nz/) — Free online book; the best place to start
 - [Quarto Documentation](https://quarto.org/docs/guide/)
 :::
 ::: {.column width="50%" style="font-size: 0.65em;"}
 **Community**
 
-- [Posit Community Forums](https://community.rstudio.com/)
-- [IR/IE colleagues](URL) — more offices are making this transition
+- [Posit Communities](https://posit.co/data-science-hangout/)
+- [ThIRsdays](https://www.reddit.com/r/ThIRsdays/) — IR-focused R tutorials by David Eubanks, Furman University
 
 **AI & Coding Assistants**
 
