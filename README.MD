@@ -1,6 +1,6 @@
 # From Spreadsheets to Scripts: Modernizing IR/IE Workflows with R
 
-**Presented by Logan King — [Haywood Community College](https://www.haywood.edu/)**  
+**Presented by Logan King [Haywood Community College](https://www.haywood.edu/)**  
 **NCAIR 2026 · Technology, Analytics, and Visualization Track**
 
 ---
